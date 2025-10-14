@@ -50,8 +50,16 @@ export default class BookingAPI {
       filtered = filtered.filter(h => h.wifi === filters.wifi);
     }
 
+    if (filters.wifi == "any") {
+      filtered = filtered.filter(h => h.wifi === "yes" || h.wifi === "no");
+    }
+
     if (filters.pool && filters.pool !== "any") {
       filtered = filtered.filter(h => h.pool === filters.pool);
+    }
+
+    if (filters.pool == "any") {
+      filtered = filtered.filter(h => h.pool === "yes" || h.pool === "no");
     }
 
     return filtered;

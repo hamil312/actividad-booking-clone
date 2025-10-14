@@ -16,14 +16,20 @@
             <input type="text" id="city" placeholder="Ciudad..." />
             <input type="date" id="checkIn" />
             <input type="date" id="checkOut" />
-            <input type="number" id="price" placeholder="Precio" min="1" value="1" />
+            <input type="number" id="price" placeholder="Precio" min="0" value="0" />
             <label>
-                <input type="checkbox" id="wifi" />
-                WiFi
+                <select name="wifi" id="wifi">
+                    <option value="any">Wifi</option>
+                    <option value="yes">Sí</option>
+                    <option value="no">No</option>
+                </select>
             </label>
             <label>
-                <input type="checkbox" id="pool" />
-                Piscina
+                <select name="pool" id="pool">
+                    <option value="any">Piscina</option>
+                    <option value="yes">Sí</option>
+                    <option value="no">No</option>
+                </select>
             </label>
             <select id="sortSelect">
                 <option value="price">Precio (menor a mayor)</option>

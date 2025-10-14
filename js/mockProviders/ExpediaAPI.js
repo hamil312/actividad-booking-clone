@@ -54,8 +54,16 @@ export default class ExpediaAPI {
       filtered = filtered.filter(h => h.wifi === filters.wifi); //Filtramos los hoteles cuyo valor de wifi coincida con el del filtro
     }
 
+    if (filters.wifi == "any") {
+      filtered = filtered.filter(h => h.wifi === "yes" || h.wifi === "no");
+    }
+
     if (filters.pool && filters.pool !== "any") { //Si se ha especificado un filtro de piscina que no sea "any"
       filtered = filtered.filter(h => h.pool === filters.pool); //Filtramos los hoteles cuyo valor de piscina coincida con el del filtro
+    }
+
+    if (filters.pool == "any") { 
+      filtered = filtered.filter(h => h.pool === "yes" || h.pool === "no");
     }
 
     return filtered;

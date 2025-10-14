@@ -8,7 +8,7 @@ class SearchFiltersManager {
       name: "", //El nombre empieza vacío
       city: "", //La ciudad empieza vacía
       dates: { checkIn: "", checkOut: "" }, //Las fechas de entrada y salida también vacías
-      price: 1, //Precio empieza en 1
+      price: 0, //Precio empieza en 0
       pool: "any",
       wifi: "any",
       appliedFilters: [], //Filtros aplicados empieza vacío
@@ -41,7 +41,7 @@ class SearchFiltersManager {
       name: "",
       city: "",
       dates: { checkIn: "", checkOut: "" },
-      price: 1,
+      price: 0,
       appliedFilters: [],
       currentSort: "price_asc",
       wifi: "any",

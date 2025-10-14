@@ -40,8 +40,8 @@ searchBtn.addEventListener("click", async () => { //Agregamos un event listener 
   });
   filtersManager.setFilter("price", Number(priceInput.value)); //Actualizamos el filtro de precio en el gestor de filtros, convirtiendo el valor del input a número
   filtersManager.setFilter("city", cityInput.value); //Actualizamos el filtro de ciudad en el gestor de filtros
-  filtersManager.setFilter("wifi", wifiInput.checked ? "yes" : "no"); //Actualizamos el filtro de wifi en el gestor de filtros, asignando "yes" si está seleccionado y "no" si no lo está
-  filtersManager.setFilter("pool", poolInput.checked ? "yes" : "no"); //Actualizamos el filtro de piscina en el gestor de filtros, asignando "yes" si está seleccionado y "no" si no lo está
+  filtersManager.setFilter("wifi", wifiInput.value); //Actualizamos el filtro de wifi en el gestor de filtros
+  filtersManager.setFilter("pool", poolInput.value); //Actualizamos el filtro de piscina en el gestor de filtros
   const selectedSort = sortSelect.value; //Creamos una variable para almacenar el valor seleccionado en el dropdown de ordenamiento
   const strategy = getStrategyByValue(selectedSort); //Obtenemos la estrategia de ordenamiento correspondiente al valor seleccionado
   resultsList.setSortStrategy(strategy); //Establecemos la estrategia de ordenamiento en la instancia de ResultsList
