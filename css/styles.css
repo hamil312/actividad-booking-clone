@@ -1,0 +1,89 @@
+:root { /* Representa el elemento raíz del documento */
+  --primary: #0061c2; /* Color primario azul */
+  --light: #f9f9f9; /* Color de fondo claro */
+  --dark: #333; /* Color de texto oscuro */
+}
+
+body { /* Estilos para el elemento body del documento */
+  font-family: Arial, sans-serif; /* Fuente sans-serif */
+  background: var(--light); /* Fondo claro */
+  margin: 0; /* Sin margen */
+  padding: 0; /* Sin padding */
+  color: var(--dark); /* Color de texto oscuro */
+}
+
+header { /* Estilos para el elemento header */
+  background: var(--primary); /* Fondo azul */
+  color: white; /* Texto blanco */
+  padding: 1rem; /* Padding de 1 rem */
+  text-align: center; /* Texto centrado */
+}
+
+#search-form { /* Estilos para el elemento con id "search-form" */
+  display: flex; /* Usar flexbox */
+  flex-wrap: wrap; /* Permitir que los elementos se envuelvan */
+  justify-content: center; /* Centrar los elementos */
+  gap: 0.5rem; /* Espacio entre elementos */
+  padding: 1rem; /* Padding de 1 rem */
+  background: white; /* Fondo blanco */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+#search-form input, 
+#search-form button { /* Estilos para los inputs y botones dentro del formulario */
+  padding: 0.5rem; /* Padding de 0.5 rem */
+  font-size: 1rem; /* Tamaño de fuente de 1 rem */
+}
+
+#search-form button { /* Estilos específicos para los botones */
+  background: var(--primary); /* Fondo azul */  
+  color: white; /* Texto blanco */
+  border: none; /* Sin borde */
+  cursor: pointer; /* Cursor de puntero */
+  transition: background 0.3s ease; /* Transición suave para el fondo */
+}
+
+#search-form button:hover { /* Estilos para el botón al pasar el cursor por encima del mismo */
+  background: #004a94; /* Fondo azul más oscuro */
+}
+
+#results { /* Estilos para el contenedor de resultados */
+  display: grid; /* Usar grid layout */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Columnas responsivas */
+  gap: 1rem; /* Espacio entre elementos */
+  padding: 1rem; /* Padding de 1 rem */
+}
+
+.hotel-card { /* Estilos para cada tarjeta de hotel */
+  background: white; /* Fondo blanco */
+  border-radius: 8px; /* Bordes redondeados */
+  padding: 1rem; /* Padding de 1 rem */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  transition: transform 0.2s ease; /* Transición suave para la transformación */
+}
+
+.hotel-card:hover { /* Estilos para la tarjeta al pasar el cursor por encima de la misma */
+  transform: scale(1.02); /* Escalar ligeramente */
+}
+
+.hotel-card h3 { /* Estilos para el título del hotel */
+  margin: 0 0 0.5rem; /* Margen inferior de 0.5 rem */
+}
+
+.hotel-card .price { /* Estilos para el precio del hotel */
+  color: var(--primary); /* Color azul */
+  font-weight: bold; /* Texto en negrita */
+  font-size: 1.2rem; /* Tamaño de fuente de 1.2 rem */
+}
+
+.hotel-card .provider { /* Estilos para el nombre del proveedor */
+  font-size: 0.85rem; /* Tamaño de fuente más pequeño */
+  color: gray; /* Color gris */
+}
+
+footer { /* Estilos para el elemento footer */
+  text-align: center; /* Texto centrado */
+  padding: 1rem; /* Padding de 1 rem */
+  font-size: 0.9rem; /* Tamaño de fuente más pequeño */
+  background: #eee; /* Fondo gris claro */
+}

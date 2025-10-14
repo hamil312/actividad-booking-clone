@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Clon Booking - Búsqueda</title>
+        <link rel="stylesheet" href="./css/styles.css" />
+    </head>
+    <body>
+        <header>
+            <h1>🔍 Buscador de Hoteles</h1>
+        </header>
+
+        <section id="search-form">
+            <input type="text" id="name" placeholder="Nombre del hotel..." />
+            <input type="text" id="city" placeholder="Ciudad..." />
+            <input type="date" id="checkIn" />
+            <input type="date" id="checkOut" />
+            <input type="number" id="price" placeholder="Precio" min="1" value="1" />
+            <label>
+                <input type="checkbox" id="wifi" />
+                WiFi
+            </label>
+            <label>
+                <input type="checkbox" id="pool" />
+                Piscina
+            </label>
+            <select id="sortSelect">
+                <option value="price">Precio (menor a mayor)</option>
+                <option value="rating">Mejor calificación</option>
+                <option value="bestvalue">Mejor relación valor-precio</option>
+            </select>
+            <button id="searchBtn">Buscar</button>
+        </section>
+
+        <section id="results">
+            <!-- Aquí se renderizarán los hoteles -->
+        </section>
+
+        <footer>
+            <p>Clon Booking</p>
+        </footer>
+
+            <script type="module" src="./js/main.js"></script>
+    </body>
+</html>
