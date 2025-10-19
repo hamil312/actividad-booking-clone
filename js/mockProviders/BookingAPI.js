@@ -1,15 +1,17 @@
-export default class BookingAPI {
-  async fetch(filters) { //Función asíncrona que simula una llamada a una API externa
-    console.log("Consultando BookingAPI con:", filters); //Mensaje de llamada a la API
-    await new Promise(r => setTimeout(r, 500)); //Simula un retardo de 500ms
+import BaseHotelAPI from "./BaseHotelAPI.js";
 
-    const data = [ //Datos simulados
+export default class BookingAPI extends BaseHotelAPI {
+  constructor() {
+    const data = [
       {
         id: "B001",
         name: "Hotel Central Bogotá",
         price: 120,
         rating: 4.5,
         reviews: 320,
+        entranceDate: "2025-11-01",
+        exitDate: "2025-11-05",
+        guests: 3,
         provider: "Booking",
         city: "Bogotá",
         wifi: "yes",
@@ -21,6 +23,9 @@ export default class BookingAPI {
         price: 90,
         rating: 4.2,
         reviews: 180,
+        entranceDate: "2025-10-22",
+        exitDate: "2025-10-25",
+        guests: 1,
         provider: "Booking",
         city: "Bogotá",
         wifi: "yes",
@@ -28,40 +33,6 @@ export default class BookingAPI {
       }
     ];
 
-    let filtered = data;
-
-    if (filters.city) {
-      filtered = filtered.filter(h => 
-        h.city.toLowerCase().includes(filters.city.toLowerCase())
-      );
-    }
-
-    if (filters.name) {
-      filtered = filtered.filter(h => 
-        h.name.toLowerCase().includes(filters.name.toLowerCase())
-      );
-    }
-
-    if (filters.price && filters.price > 0) {
-      filtered = filtered.filter(h => h.price <= filters.price);
-    }
-
-    if (filters.wifi && filters.wifi !== "any") {
-      filtered = filtered.filter(h => h.wifi === filters.wifi);
-    }
-
-    if (filters.wifi == "any") {
-      filtered = filtered.filter(h => h.wifi === "yes" || h.wifi === "no");
-    }
-
-    if (filters.pool && filters.pool !== "any") {
-      filtered = filtered.filter(h => h.pool === filters.pool);
-    }
-
-    if (filters.pool == "any") {
-      filtered = filtered.filter(h => h.pool === "yes" || h.pool === "no");
-    }
-
-    return filtered;
+    super("BookingAPI", data);
   }
 }

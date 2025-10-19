@@ -5,6 +5,7 @@ import ExpediaAPI from "./mockProviders/ExpediaAPI.js";
 import ResultsList from "./ResultsList.js";
 import SortByPriceStrategy from "./SortStrategies/SortByPriceStrategy.js";
 import SortByRatingStrategy from "./SortStrategies/SortByRatingStrategy.js";
+//import RealHotelAPI from "./providers/RealHotelAPI.js";
 import SortByBestValueStrategy from "./SortStrategies/SortByBestValueStrategy.js"; //Importamos los módulos necesarios
 
 const searchBtn = document.getElementById("searchBtn"); //Referenciamos el botón de busqueda a través de GetElementById
@@ -15,11 +16,17 @@ const priceInput = document.getElementById("price"); //Referenciamos el input de
 const cityInput = document.getElementById("city"); //Referenciamos el input de ciudad a través de GetElementById
 const wifiInput = document.getElementById("wifi"); //Referenciamos el input de wifi a través de GetElementById
 const poolInput = document.getElementById("pool"); //Referenciamos el input de piscina a través de GetElementById
+const guestsInput = document.getElementById("guests"); //Referenciamos el input de número de huéspedes a través de GetElementById
 
 const resultsList = new ResultsList("#results"); //Creamos una instancia de ResultsList para manejar la visualización de resultados pasandole el selector de CSS
 const facade = new HotelProviderFacade(); //Creamos una instancia del Facade para manejar las APIs de proveedores de hoteles
 facade.addProvider(new BookingAPI()); //Agregamos la API de Booking al Facade
 facade.addProvider(new ExpediaAPI()); //Agregamos la API de Expedia al Facade
+//const realProvider = new RealHotelAPI(
+//  "RapidAPI_Hotels", 
+//  "https://rapidapi.com/tipsters/api/booking-com"
+//);
+//facade.addProvider(realProvider); //Agregamos la API real al Facade
 
 function getStrategyByValue(value) { //Función para obtener la estrategia de ordenamiento según el valor seleccionado
   switch (value) {
@@ -34,14 +41,13 @@ function getStrategyByValue(value) { //Función para obtener la estrategia de or
 
 searchBtn.addEventListener("click", async () => { //Agregamos un event listener al botón de búsqueda para el evento "click"
   filtersManager.setFilter("name", nameInput.value); //Actualizamos el filtro de destino en el gestor de filtros
-  filtersManager.setFilter("dates", { //Actualizamos el filtro de fechas en el gestor de filtros, pasando la clave de fecha y asignandole un objeto con las fechas de entrada y salida
-    checkIn: checkInInput.value, //Asignamos el input de fecha de entrada
-    checkOut: checkOutInput.value //Asignamos el input de fecha de salida
-  });
+  filtersManager.setFilter("entranceDate", checkInInput.value); //Actualizamos el filtro de fecha de entrada en el gestor de filtros
+  filtersManager.setFilter("exitDate", checkOutInput.value); //Actualizamos el filtro de fecha de salida en el gestor de filtros
   filtersManager.setFilter("price", Number(priceInput.value)); //Actualizamos el filtro de precio en el gestor de filtros, convirtiendo el valor del input a número
   filtersManager.setFilter("city", cityInput.value); //Actualizamos el filtro de ciudad en el gestor de filtros
   filtersManager.setFilter("wifi", wifiInput.value); //Actualizamos el filtro de wifi en el gestor de filtros
   filtersManager.setFilter("pool", poolInput.value); //Actualizamos el filtro de piscina en el gestor de filtros
+  filtersManager.setFilter("guests", Number(guestsInput.value)); //Actualizamos el filtro de número de huéspedes en el gestor de filtros
   const selectedSort = sortSelect.value; //Creamos una variable para almacenar el valor seleccionado en el dropdown de ordenamiento
   const strategy = getStrategyByValue(selectedSort); //Obtenemos la estrategia de ordenamiento correspondiente al valor seleccionado
   resultsList.setSortStrategy(strategy); //Establecemos la estrategia de ordenamiento en la instancia de ResultsList

@@ -15,7 +15,7 @@ export default class ResultsList {
     }
 
     if (!sortedHotels || sortedHotels.length === 0) { //Verifica si existen hoteles para mostrar
-      this.container.innerHTML = `<p>No se encontraron hoteles 😢</p>`; //En caso de que no, se muestra un mensaje
+      this.container.innerHTML = `<p>No se encontraron hoteles</p>`; //En caso de que no, se muestra un mensaje
       return;
     }
 
@@ -28,6 +28,8 @@ export default class ResultsList {
             <p>⭐ ${hotel.rating} (${hotel.reviews} reseñas)</p>
             <p class="provider">Proveedor: ${hotel.provider}</p>
             <p class="city">Ciudad: ${hotel.city}</p>
+            <p class="dates">Fechas: ${hotel.entranceDate} - ${hotel.exitDate}</p>
+            <p class="guests">Huéspedes: ${hotel.guests}</p>
             <p class="amenities">WiFi: ${hotel.wifi}, Piscina: ${hotel.pool}</p>
         </div>
       ` //Por cada elemento, crea una tarjeta con la información del hotel (nombre, precio, calificación, número de reseñas y proveedor

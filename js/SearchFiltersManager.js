@@ -7,12 +7,14 @@ class SearchFiltersManager {
     this.state = { //Creamos un objeto que define el estado inicial de los filtros
       name: "", //El nombre empieza vacío
       city: "", //La ciudad empieza vacía
-      dates: { checkIn: "", checkOut: "" }, //Las fechas de entrada y salida también vacías
       price: 0, //Precio empieza en 0
-      pool: "any",
-      wifi: "any",
+      pool: "any", //Piscina empieza en "any"
+      wifi: "any", //Wifi empieza en "any"
+      guests: 1, //Número de huéspedes empieza en 1
       appliedFilters: [], //Filtros aplicados empieza vacío
-      currentSort: "price_asc" //Orden actual empieza en orden ascendente por precio
+      currentSort: "price_asc", //Orden actual empieza en orden ascendente por precio
+      entranceDate: "",//Las fechas de entrada y salida también vacías
+      exitDate: ""
     };
 
     SearchFiltersManager.instance = this; //Guardamos la instancia creada en una propiedad estática de la clase
@@ -40,12 +42,14 @@ class SearchFiltersManager {
     this.state = { //Reiniciamos el estado a los valores iniciales
       name: "",
       city: "",
-      dates: { checkIn: "", checkOut: "" },
+      entranceDate: "",
+      exitDate: "",
       price: 0,
       appliedFilters: [],
       currentSort: "price_asc",
       wifi: "any",
-      pool: "any"
+      pool: "any",
+      guests: 1
     };
   }
 }
